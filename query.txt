@@ -1,6 +1,8 @@
 transaksi
 -insert
-INSERT INTO TRANSAKSI(tangal, kode_transaksi, id_produk, kuantitas, total) VALUES(?, ?, ?, ?, ?);
+INSERT INTO penjualan(tangal, kode_transaksi, id_produk, kuantitas, total) VALUES(?, ?, ?, ?, ?);
+-select bulanan
+SELECT kode_transaksi, COUNT(kode_transaksi) as jumlah, SUM(total) as totalTransaksi FROM penjualan WHERE MONTH(tanggal) = ? GROUP BY kode_transaksi;
 -select per hari
 SELECT kode_transaksi, COUNT(kode_transaksi) as jumlah, SUM(total) as totalTransaksi FROM penjualan WHERE tanggal = ? GROUP BY kode_transaksi;
 -select hari ini
@@ -11,6 +13,7 @@ SELECT pr.nama, pr.harga, pe.kuantitas, pe.total FROM penjualan pe JOIN produk p
 stok
 perbarui stok (tambah stok)
 UPDATE stok SET stok=?, terakhir_diperbarui=NOW() WHERE id_produk=?;
+SELECT s.id, s.id_produk, p.nama, s.stok, s.terakhir_diperbarui FROM stok s JOIN produk p ON s.id_produk = p.id;
 
 produk
 INSERT INTO produk(nama, tipe, harga) VALUES(?, ?, ?);
