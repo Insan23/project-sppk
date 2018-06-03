@@ -1,0 +1,27 @@
+transaksi
+-insert
+INSERT INTO TRANSAKSI(tangal, kode_transaksi, id_produk, kuantitas, total) VALUES(?, ?, ?, ?, ?);
+-select per hari
+SELECT kode_transaksi, COUNT(kode_transaksi) as jumlah, SUM(total) as totalTransaksi FROM penjualan WHERE tanggal = ? GROUP BY kode_transaksi;
+-select hari ini
+SELECT kode_transaksi, COUNT(kode_transaksi) as jumlah, SUM(total) as totalTransaksi FROM penjualan WHERE tanggal = ? GROUP BY kode_transaksi;
+-select per transaksi
+SELECT pr.nama, pr.harga, pe.kuantitas, pe.total FROM penjualan pe JOIN produk pr ON pe.id_produk = pr.id WHERE pe.kode_transaksi = ?;
+
+stok
+perbarui stok (tambah stok)
+UPDATE stok SET stok=?, terakhir_diperbarui=NOW() WHERE id_produk=?;
+
+produk
+INSERT INTO produk(nama, tipe, harga) VALUES(?, ?, ?);
+UPDATE stok SET nama=?, tipe=?, harga=? WHERE id=?;
+SELECT id, nama, tipe, harga FROM produk;
+
+kriteria
+INSERT INTO kriteria(nama, bobot) VALUES(?, ?);
+SELECT id, nama, bobot FROM kriteria;
+UPDATE kriteria SET bobot=? WHERE id=?;
+
+alternati_kriteria
+INSERT INTO alternatif_kriteria(id_produk, id_kriteria, nilai) VALUES(?, ?, ?);
+SELECT ak.id_produk, p.nama as namaproduk, ak.id_kriteria, k.nama as namakriteria, ak.nilai FROM alternatif_kriteria ak JOIN kriteria k ON ak.id_kriteria = k.id JOIN produk p ON ak.id_produk = p.id;
