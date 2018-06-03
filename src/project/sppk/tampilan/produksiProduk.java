@@ -5,6 +5,9 @@
  */
 package project.sppk.tampilan;
 
+import javax.swing.JButton;
+import javax.swing.JTable;
+
 /**
  *
  * @author ASUS
@@ -18,6 +21,27 @@ public class produksiProduk extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JButton getHapus() {
+        return hapus;
+    }
+
+    public JButton getKembali() {
+        return kembali;
+    }
+
+    public JTable getTabelProduk() {
+        return tabelProduk;
+    }
+
+    public JButton getTambah() {
+        return tambah;
+    }
+
+    public JButton getUbah() {
+        return ubah;
+    }
+    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,17 +51,71 @@ public class produksiProduk extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelProduk = new javax.swing.JTable();
+        tambah = new javax.swing.JButton();
+        ubah = new javax.swing.JButton();
+        hapus = new javax.swing.JButton();
+        kembali = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        tabelProduk.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tabelProduk);
+
+        tambah.setText("tambah");
+
+        ubah.setText("ubah");
+
+        hapus.setText("hapus");
+
+        kembali.setText("kembali");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(tambah)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ubah)
+                .addGap(18, 18, 18)
+                .addComponent(hapus)
+                .addGap(54, 54, 54))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
+                        .addGap(19, 19, 19))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(kembali)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(kembali)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tambah)
+                    .addComponent(ubah)
+                    .addComponent(hapus))
+                .addGap(34, 34, 34)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -79,5 +157,11 @@ public class produksiProduk extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton hapus;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton kembali;
+    private javax.swing.JTable tabelProduk;
+    private javax.swing.JButton tambah;
+    private javax.swing.JButton ubah;
     // End of variables declaration//GEN-END:variables
 }

@@ -27,14 +27,13 @@ public class penjualan {
         koneksi = new koneksi().getKoneksi();
     }
     
-    public DefaultTableModel getDataPerHari(int bulan) {
+    public DefaultTableModel getDataPerHari() {
         String kolom[] = {"Kode Transaksi", "Jumlah Produk", "Total"};
         DefaultTableModel output = new DefaultTableModel(null, kolom);
-        String query = "SELECT kode_transaksi, COUNT(kode_transaksi) as jumlah, SUM(total) as totalTransaksi FROM penjualan WHERE tanggal = ? GROUP BY kode_transaksi;";
+        String query = "SELECT kode_transaksi, COUNT(kode_transaksi) as jumlah, SUM(total) as totalTransaksi FROM penjualan WHERE DAY(tanggal) = DAY(CURDATE()) GROUP BY kode_transaksi;";
 
         try {
             PreparedStatement st = koneksi.prepareStatement(query);
-            st.setInt(1, bulan);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 Object data[] = new Object[3];
