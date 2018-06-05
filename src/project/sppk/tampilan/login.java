@@ -5,6 +5,10 @@
  */
 package project.sppk.tampilan;
 
+import javax.swing.JButton;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 /**
  *
  * @author ASUS
@@ -18,6 +22,20 @@ public class login extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JButton getMasuk() {
+        return masuk;
+    }
+
+    public JPasswordField getPassword() {
+        return password;
+    }
+
+    public JTextField getUsername() {
+        return username;
+    }
+    
+    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,35 +48,29 @@ public class login extends javax.swing.JFrame {
         username = new javax.swing.JTextField();
         password = new javax.swing.JPasswordField();
         masuk = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        masuk.setText("jButton1");
+        username.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        getContentPane().add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 80, 135, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(126, 126, 126)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(masuk)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(username)
-                        .addComponent(password, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)))
-                .addContainerGap(139, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(masuk)
-                .addContainerGap(121, Short.MAX_VALUE))
-        );
+        password.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 125, 135, -1));
+
+        masuk.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        masuk.setText("Masuk");
+        getContentPane().add(masuk, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Lele Matrix Jaya");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
+
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/sppk/res/bg2.jpg"))); // NOI18N
+        getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -99,6 +111,8 @@ public class login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bg;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton masuk;
     private javax.swing.JPasswordField password;
     private javax.swing.JTextField username;

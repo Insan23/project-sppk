@@ -5,6 +5,10 @@
  */
 package project.sppk.tampilan;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JTable;
+
 /**
  *
  * @author ASUS
@@ -18,6 +22,32 @@ public class pemilikLaporan extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JComboBox<String> getComboBulan() {
+        return comboBulan;
+    }
+
+    public JComboBox<String> getComboTahun() {
+        return comboTahun;
+    }
+
+    public JButton getLihat() {
+        return lihat;
+    }
+
+    public JButton getLogout() {
+        return logout;
+    }
+
+    public JButton getRangking() {
+        return rangking;
+    }
+
+    public JTable getTabelTransaksi() {
+        return tabelTransaksi;
+    }
+    
+    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,18 +57,69 @@ public class pemilikLaporan extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelTransaksi = new javax.swing.JTable();
+        logout = new javax.swing.JButton();
+        rangking = new javax.swing.JButton();
+        lihat = new javax.swing.JButton();
+        comboTahun = new javax.swing.JComboBox<>();
+        comboBulan = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        bg = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tabelTransaksi.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tabelTransaksi);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 127, 1260, 582));
+
+        logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/sppk/res/keluar.png"))); // NOI18N
+        logout.setBorder(null);
+        logout.setBorderPainted(false);
+        logout.setContentAreaFilled(false);
+        getContentPane().add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 20, -1, -1));
+
+        rangking.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        rangking.setText("Lihat Perkiraan");
+        getContentPane().add(rangking, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 90, -1, -1));
+
+        lihat.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        lihat.setText("Lihat Detail");
+        getContentPane().add(lihat, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 90, -1, -1));
+
+        comboTahun.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        comboTahun.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(comboTahun, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 120, 30));
+
+        comboBulan.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        comboBulan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(comboBulan, new org.netbeans.lib.awtextra.AbsoluteConstraints(333, 90, 150, 30));
+
+        jLabel1.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Tahun");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, 30));
+
+        jLabel2.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Bulan");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, -1, 30));
+
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/sppk/res/bg1.jpg"))); // NOI18N
+        getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -79,5 +160,15 @@ public class pemilikLaporan extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bg;
+    private javax.swing.JComboBox<String> comboBulan;
+    private javax.swing.JComboBox<String> comboTahun;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton lihat;
+    private javax.swing.JButton logout;
+    private javax.swing.JButton rangking;
+    private javax.swing.JTable tabelTransaksi;
     // End of variables declaration//GEN-END:variables
 }

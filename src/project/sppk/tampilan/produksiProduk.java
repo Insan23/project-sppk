@@ -57,8 +57,10 @@ public class produksiProduk extends javax.swing.JFrame {
         ubah = new javax.swing.JButton();
         hapus = new javax.swing.JButton();
         kembali = new javax.swing.JButton();
+        bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tabelProduk.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -73,53 +75,46 @@ public class produksiProduk extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabelProduk);
 
-        tambah.setText("tambah");
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 177, 1251, 532));
 
-        ubah.setText("ubah");
+        tambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/sppk/res/tambah.png"))); // NOI18N
+        tambah.setBorder(null);
+        tambah.setBorderPainted(false);
+        tambah.setContentAreaFilled(false);
+        getContentPane().add(tambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(794, 127, -1, -1));
 
-        hapus.setText("hapus");
+        ubah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/sppk/res/ubah.png"))); // NOI18N
+        ubah.setBorder(null);
+        ubah.setBorderPainted(false);
+        ubah.setContentAreaFilled(false);
+        getContentPane().add(ubah, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 130, -1, -1));
 
-        kembali.setText("kembali");
+        hapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/sppk/res/hapus.png"))); // NOI18N
+        hapus.setBorder(null);
+        hapus.setBorderPainted(false);
+        hapus.setContentAreaFilled(false);
+        getContentPane().add(hapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 127, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(tambah)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ubah)
-                .addGap(18, 18, 18)
-                .addComponent(hapus)
-                .addGap(54, 54, 54))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
-                        .addGap(19, 19, 19))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(kembali)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(kembali)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tambah)
-                    .addComponent(ubah)
-                    .addComponent(hapus))
-                .addGap(34, 34, 34)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        kembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/sppk/res/batal.png"))); // NOI18N
+        kembali.setBorder(null);
+        kembali.setBorderPainted(false);
+        kembali.setContentAreaFilled(false);
+        kembali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kembaliActionPerformed(evt);
+            }
+        });
+        getContentPane().add(kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 20, -1, -1));
+
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/sppk/res/bg4.jpg"))); // NOI18N
+        getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void kembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembaliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_kembaliActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,6 +152,7 @@ public class produksiProduk extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bg;
     private javax.swing.JButton hapus;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton kembali;

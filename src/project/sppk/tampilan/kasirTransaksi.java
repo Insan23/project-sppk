@@ -77,8 +77,14 @@ public class kasirTransaksi extends javax.swing.JFrame {
         kembali = new javax.swing.JButton();
         selesai = new javax.swing.JButton();
         total = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        Produk = new javax.swing.JLabel();
+        total1 = new javax.swing.JLabel();
+        bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tabelTransaksi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -93,70 +99,61 @@ public class kasirTransaksi extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabelTransaksi);
 
-        tambah.setText("tambah");
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 179, 1260, 530));
 
-        tipe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Makanan Ringan", "Makanan Berat", "Makanan Penunjang" }));
+        tambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/sppk/res/tambah.png"))); // NOI18N
+        tambah.setBorder(null);
+        tambah.setBorderPainted(false);
+        tambah.setContentAreaFilled(false);
+        getContentPane().add(tambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 120, -1, -1));
+
+        tipe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih...", "Makanan Ringan", "Makanan Berat", "Makanan Penunjang" }));
+        tipe.setBorder(null);
+        getContentPane().add(tipe, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 180, 30));
 
         produk.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(produk, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 180, 30));
+        getContentPane().add(jumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 180, 30));
 
-        kembali.setText("kembali");
+        kembali.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/sppk/res/batal.png"))); // NOI18N
+        kembali.setBorder(null);
+        kembali.setBorderPainted(false);
+        kembali.setContentAreaFilled(false);
+        getContentPane().add(kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 120, -1, -1));
 
-        selesai.setText("selesai");
+        selesai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/sppk/res/simpan.png"))); // NOI18N
+        selesai.setBorder(null);
+        selesai.setBorderPainted(false);
+        selesai.setContentAreaFilled(false);
+        getContentPane().add(selesai, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 120, -1, -1));
 
-        total.setText("jLabel1");
+        total.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        total.setForeground(new java.awt.Color(255, 255, 255));
+        total.setText("00000");
+        getContentPane().add(total, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 120, 290, 30));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 643, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tambah)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(tipe, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(produk, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jumlah))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(kembali))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(88, 88, 88)
-                                        .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(selesai)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tipe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(kembali))
-                .addGap(18, 18, 18)
-                .addComponent(produk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jumlah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(tambah)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addComponent(selesai)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        jLabel1.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Jumlah");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 130, 30));
+
+        jLabel2.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Jenis Makanan");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 130, 30));
+
+        Produk.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        Produk.setForeground(new java.awt.Color(255, 255, 255));
+        Produk.setText("Produk");
+        getContentPane().add(Produk, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 130, 30));
+
+        total1.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        total1.setForeground(new java.awt.Color(255, 255, 255));
+        total1.setText("Total : Rp");
+        getContentPane().add(total1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 80, 30));
+
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/sppk/res/bg1.jpg"))); // NOI18N
+        getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -197,6 +194,10 @@ public class kasirTransaksi extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Produk;
+    private javax.swing.JLabel bg;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jumlah;
     private javax.swing.JButton kembali;
@@ -206,5 +207,6 @@ public class kasirTransaksi extends javax.swing.JFrame {
     private javax.swing.JButton tambah;
     private javax.swing.JComboBox<String> tipe;
     private javax.swing.JLabel total;
+    private javax.swing.JLabel total1;
     // End of variables declaration//GEN-END:variables
 }

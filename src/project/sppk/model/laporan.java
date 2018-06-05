@@ -10,6 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 import project.sppk.koneksi.koneksi;
 
@@ -25,14 +27,14 @@ public class laporan {
         koneksi = new koneksi().getKoneksi();
     }
 
-    public DefaultTableModel getDataBulanan(int bulan) {
+    public DefaultTableModel getDataBulanan(String bulan) {
         String kolom[] = {"Kode Transaksi", "Jumlah Produk", "Total"};
         DefaultTableModel output = new DefaultTableModel(null, kolom);
         String query = "SELECT kode_transaksi, COUNT(kode_transaksi) as jumlah, SUM(total) as totalTransaksi FROM penjualan WHERE MONTH(tanggal) = ? GROUP BY kode_transaksi;";
 
         try {
             PreparedStatement st = koneksi.prepareStatement(query);
-            st.setInt(1, bulan);
+            st.setString(1, bulan);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 Object data[] = new Object[3];
@@ -142,5 +144,41 @@ public class laporan {
             e.getMessage();
         }
         return kriteriaproduk;
+    }
+
+    public DefaultComboBoxModel getBulan(String tahun) {
+        String query = "SELECT DISTINCT MONTH(tangal) as bulan FROM penjualan WHERE YEAR(tanggal) = ?;";
+        DefaultComboBoxModel bulan = null;
+        try {
+            PreparedStatement st = koneksi.prepareStatement(query);
+            st.setString(1, tahun);
+            ResultSet rs = st.executeQuery();
+            ArrayList<String> s = new ArrayList<>();
+            while (rs.next()) {
+                s.add(rs.getString("bulan"));
+            }
+            bulan = new DefaultComboBoxModel(s.toArray());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return bulan;
+    }
+    
+    public DefaultComboBoxModel getTahun() {
+        String query = "SELECT DISTINCT YEAR(tanggal) as tahun FROM penjualan;";
+        
+        DefaultComboBoxModel tahun = null;
+        try {
+            PreparedStatement st = koneksi.prepareStatement(query);
+            ResultSet rs = st.executeQuery();
+            ArrayList<String> s = new ArrayList<>();
+            while (rs.next()) {
+                s.add(rs.getString("tahun"));
+            }
+            tahun = new DefaultComboBoxModel(s.toArray());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return tahun;
     }
 }

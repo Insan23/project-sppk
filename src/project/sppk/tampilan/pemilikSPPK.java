@@ -5,6 +5,9 @@
  */
 package project.sppk.tampilan;
 
+import javax.swing.JButton;
+import javax.swing.JTable;
+
 /**
  *
  * @author ASUS
@@ -18,6 +21,20 @@ public class pemilikSPPK extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JButton getDetailPerhitungan() {
+        return detailPerhitungan;
+    }
+
+    public JButton getKembali() {
+        return kembali;
+    }
+
+    public JTable getTabelRangking() {
+        return tabelRangking;
+    }
+    
+    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,18 +44,40 @@ public class pemilikSPPK extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelRangking = new javax.swing.JTable();
+        kembali = new javax.swing.JButton();
+        detailPerhitungan = new javax.swing.JButton();
+        bg = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tabelRangking.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tabelRangking);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 167, 690, 309));
+
+        kembali.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        kembali.setText("Kembali");
+        getContentPane().add(kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
+
+        detailPerhitungan.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        detailPerhitungan.setText("Rincian Perhitungan");
+        getContentPane().add(detailPerhitungan, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, -1, -1));
+
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/sppk/res/bg2.jpg"))); // NOI18N
+        getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -79,5 +118,10 @@ public class pemilikSPPK extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bg;
+    private javax.swing.JButton detailPerhitungan;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton kembali;
+    private javax.swing.JTable tabelRangking;
     // End of variables declaration//GEN-END:variables
 }

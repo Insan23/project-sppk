@@ -52,8 +52,10 @@ public class produksiStok extends javax.swing.JFrame {
         lihat_produk = new javax.swing.JButton();
         tambah_stok = new javax.swing.JButton();
         logout = new javax.swing.JButton();
+        bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tabelStok.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -68,42 +70,26 @@ public class produksiStok extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabelStok);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 1260, 550));
+
         lihat_produk.setText("Lihat Produk");
+        getContentPane().add(lihat_produk, new org.netbeans.lib.awtextra.AbsoluteConstraints(1179, 127, -1, -1));
 
-        tambah_stok.setText("Tambah Stok");
+        tambah_stok.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/sppk/res/tambah.png"))); // NOI18N
+        tambah_stok.setBorder(null);
+        tambah_stok.setBorderPainted(false);
+        tambah_stok.setContentAreaFilled(false);
+        getContentPane().add(tambah_stok, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 120, -1, -1));
 
-        logout.setText("Logout");
+        logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/sppk/res/keluar.png"))); // NOI18N
+        logout.setToolTipText("");
+        logout.setBorder(null);
+        logout.setBorderPainted(false);
+        logout.setContentAreaFilled(false);
+        getContentPane().add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 20, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(tambah_stok)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lihat_produk))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(logout)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(logout)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lihat_produk)
-                    .addComponent(tambah_stok))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/sppk/res/bg4.jpg"))); // NOI18N
+        getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -144,6 +130,7 @@ public class produksiStok extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bg;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton lihat_produk;
     private javax.swing.JButton logout;

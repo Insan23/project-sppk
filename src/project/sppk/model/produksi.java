@@ -95,4 +95,38 @@ public class produksi {
         }
         return false;
     }
+    
+    public boolean insertProduk(Produk prod) {
+        String query = "INSERT INTO produk(nama, tipe, harga) VALUES(?, ?, ?);";
+        
+        try {
+            PreparedStatement st = koneksi.prepareStatement(query);
+            st.setString(1, prod.getNama());
+            st.setString(2, prod.getTipe());
+            st.setInt(3, prod.getHarga());
+            int hasil = st.executeUpdate();
+            if (hasil > 0) {
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
+    public boolean deleteProduk(int ID) {
+        String query = "DELETE FROM produk WHERE id = ?;";
+        
+        try {
+            PreparedStatement st = koneksi.prepareStatement(query);
+            st.setInt(1, ID);
+            int hasil = st.executeUpdate();
+            if (hasil > 0) {
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
