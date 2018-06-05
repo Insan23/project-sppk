@@ -50,7 +50,7 @@ public class penjualan {
     }
     
     public void insertDataPenjualan(ArrayList<Transaksi> data) {
-        String query = "INSERT INTO penjualan(tangal, kode_transaksi, id_produk, kuantitas, total) VALUES(CURDATE(), ?, ?, ?, ?);";
+        String query = "INSERT INTO penjualan(tanggal, kode_transaksi, id_produk, kuantitas, total) VALUES(CURDATE(), ?, ?, ?, ?);";
         
         DateFormat dateFormat = new SimpleDateFormat("FMM-sS");
 	Date date = new Date();

@@ -12,9 +12,9 @@ package project.sppk.model;
 public class Kriteria {
     int ID;
     String Nama;
-    int Bobot;
+    double Bobot;
 
-    public Kriteria(int ID, String Nama, int Bobot) {
+    public Kriteria(int ID, String Nama, double Bobot) {
         this.ID = ID;
         this.Nama = Nama;
         this.Bobot = Bobot;
@@ -36,11 +36,11 @@ public class Kriteria {
         this.Nama = Nama;
     }
 
-    public int getBobot() {
+    public double getBobot() {
         return Bobot;
     }
 
-    public void setBobot(int Bobot) {
+    public void setBobot(double Bobot) {
         this.Bobot = Bobot;
     }
     

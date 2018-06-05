@@ -5,6 +5,9 @@
  */
 package project.sppk.tampilan;
 
+import javax.swing.JButton;
+import javax.swing.JTable;
+
 /**
  *
  * @author ASUS
@@ -18,6 +21,33 @@ public class pemilikPerhitungan extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JButton getBobot() {
+        return bobot;
+    }
+    
+
+    public JButton getKembali() {
+        return kembali;
+    }
+
+    public JButton getKriteria() {
+        return kriteria;
+    }
+
+    public JButton getNormalisasi() {
+        return normalisasi;
+    }
+
+    public JButton getPerkalian() {
+        return perkalian;
+    }
+
+    public JTable getTabelPerhitungan() {
+        return tabelPerhitungan;
+    }
+    
+    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,21 +57,67 @@ public class pemilikPerhitungan extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelPerhitungan = new javax.swing.JTable();
+        kriteria = new javax.swing.JButton();
+        perkalian = new javax.swing.JButton();
+        normalisasi = new javax.swing.JButton();
+        kembali = new javax.swing.JButton();
+        bobot = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tabelPerhitungan.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tabelPerhitungan);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 93, 1260, 616));
+
+        kriteria.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        kriteria.setText("Tabel Kriteria Produk");
+        getContentPane().add(kriteria, new org.netbeans.lib.awtextra.AbsoluteConstraints(1107, 50, -1, -1));
+
+        perkalian.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        perkalian.setText("Tabel Perkalian Normalisasi");
+        getContentPane().add(perkalian, new org.netbeans.lib.awtextra.AbsoluteConstraints(886, 50, -1, -1));
+
+        normalisasi.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        normalisasi.setText("Tabel Normalisasi");
+        normalisasi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                normalisasiActionPerformed(evt);
+            }
+        });
+        getContentPane().add(normalisasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(727, 50, -1, -1));
+
+        kembali.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        kembali.setText("Kembali");
+        getContentPane().add(kembali, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
+
+        bobot.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        bobot.setText("Tabel Kriteria");
+        getContentPane().add(bobot, new org.netbeans.lib.awtextra.AbsoluteConstraints(594, 50, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/sppk/res/bg1.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void normalisasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_normalisasiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_normalisasiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +155,13 @@ public class pemilikPerhitungan extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bobot;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton kembali;
+    private javax.swing.JButton kriteria;
+    private javax.swing.JButton normalisasi;
+    private javax.swing.JButton perkalian;
+    private javax.swing.JTable tabelPerhitungan;
     // End of variables declaration//GEN-END:variables
 }

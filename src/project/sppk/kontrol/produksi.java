@@ -40,6 +40,7 @@ public class produksi {
                 stok.getLogout().addActionListener(new listener("logout"));
                 stok.getTambah_stok().addActionListener(new listener("tambah stok"));
                 stok.getTabelStok().setModel(model.getStok());
+                stok.getTabelStok().addMouseListener(new tabelListener("tabel stok"));
 
                 stok.getTambah_stok().setEnabled(false);
                 break;
@@ -52,6 +53,7 @@ public class produksi {
                 produk.getTambah().addActionListener(new listener("tambah"));
                 produk.getKembali().addActionListener(new listener("kembali"));
                 produk.getTabelProduk().setModel(model.getProduk());
+                produk.getTabelProduk().addMouseListener(new tabelListener("tabel produk"));
 
                 produk.getHapus().setEnabled(false);
                 produk.getUbah().setEnabled(false);

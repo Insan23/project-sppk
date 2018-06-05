@@ -85,7 +85,7 @@ public class laporan {
                 Kriteria satu = new Kriteria(
                         rs.getInt("id"),
                         rs.getString("nama"),
-                        rs.getInt("bobot")
+                        rs.getDouble("bobot")
                 );
                 kriteria.add(satu);
             }
@@ -147,7 +147,7 @@ public class laporan {
     }
 
     public DefaultComboBoxModel getBulan(String tahun) {
-        String query = "SELECT DISTINCT MONTH(tangal) as bulan FROM penjualan WHERE YEAR(tanggal) = ?;";
+        String query = "SELECT DISTINCT MONTH(tanggal) as bulan FROM penjualan WHERE YEAR(tanggal) = ?;";
         DefaultComboBoxModel bulan = null;
         try {
             PreparedStatement st = koneksi.prepareStatement(query);

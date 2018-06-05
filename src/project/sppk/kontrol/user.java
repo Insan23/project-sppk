@@ -43,12 +43,15 @@ public class user {
                         break;
                     case "pemilik":
                         new pemilik();
+                        view.dispose();
                         break;
                     case "kasir":
                         new kasir("home");
+                        view.dispose();
                         break;
                     case "gudang":
                         new produksi("stok");
+                        view.dispose();
                         break;
                     default:
                         JOptionPane.showMessageDialog(view, "Kesalahan Saat Membaca Data", "Perhatian", JOptionPane.WARNING_MESSAGE);

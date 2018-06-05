@@ -63,34 +63,34 @@ public class kasir {
 
                 transaksi.getTabelTransaksi().setModel(tabelTransaksi);
 
-                //transaksi.getJumlah().getDocument().addDocumentListener(new DocumentListener() {
-//                    @Override
-//                    public void insertUpdate(DocumentEvent e) {
-//                        hitung();
-//                    }
-//
-//                    @Override
-//                    public void removeUpdate(DocumentEvent e) {
-//                        hitung();
-//                    }
-//
-//                    @Override
-//                    public void changedUpdate(DocumentEvent e) {
-//                        hitung();
-//                    }
-//
-//                    public void hitung() {
-//                        if (!transaksi.getJumlah().getText().equalsIgnoreCase("")) {
-//                            int jumlah = Integer.valueOf(transaksi.getJumlah().getText());
-//                            int harga = produk.get(
-//                                    transaksi.getProduk().getSelectedIndex()
-//                            ).getHarga();
-//                            int total = jumlah * harga;
-//                            transaksi.getTotal().setText("" + total);
-//                            transaksi.getTambah().setEnabled(true);
-//                        }
-//                    }
-//                });
+                transaksi.getJumlah().getDocument().addDocumentListener(new DocumentListener() {
+                    @Override
+                    public void insertUpdate(DocumentEvent e) {
+                        hitung();
+                    }
+
+                    @Override
+                    public void removeUpdate(DocumentEvent e) {
+                        hitung();
+                    }
+
+                    @Override
+                    public void changedUpdate(DocumentEvent e) {
+                        hitung();
+                    }
+
+                    public void hitung() {
+                        if (!transaksi.getJumlah().getText().equalsIgnoreCase("")) {
+                            int jumlah = Integer.valueOf(transaksi.getJumlah().getText());
+                            int harga = produk.get(
+                                    transaksi.getProduk().getSelectedIndex()
+                            ).getHarga();
+                            int total = jumlah * harga;
+                            transaksi.getTotal().setText("" + total);
+                            transaksi.getTambah().setEnabled(true);
+                        }
+                    }
+                });
                 break;
             default:
 
@@ -128,7 +128,7 @@ public class kasir {
                     transaksi.getProduk().setModel(new DefaultComboBoxModel<>());
                     transaksi.getProduk().setEnabled(false);
                     transaksi.getTambah().setEnabled(false);
-                    transaksi.getSelesai().setEnabled(false);
+                    transaksi.getSelesai().setEnabled(true);
                     break;
                 case "selesai":
                     ArrayList<Transaksi> tran = new ArrayList<>();
@@ -140,6 +140,8 @@ public class kasir {
                         tran.add(tr);
                     }
                     model.insertDataPenjualan(tran);
+                    new kasir("home");
+                    transaksi.dispose();
                     break;
                 case "kembali":
                     new kasir("home");

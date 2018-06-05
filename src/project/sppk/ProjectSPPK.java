@@ -5,6 +5,8 @@
  */
 package project.sppk;
 
+import project.sppk.kontrol.user;
+
 /**
  *
  * @author ASUS
@@ -15,7 +17,7 @@ public class ProjectSPPK {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        new user();
     }
     
 }
