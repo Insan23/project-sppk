@@ -154,6 +154,7 @@ public class laporan {
             st.setString(1, tahun);
             ResultSet rs = st.executeQuery();
             ArrayList<String> s = new ArrayList<>();
+            s.add("Pilih");
             while (rs.next()) {
                 s.add(rs.getString("bulan"));
             }
@@ -172,6 +173,7 @@ public class laporan {
             PreparedStatement st = koneksi.prepareStatement(query);
             ResultSet rs = st.executeQuery();
             ArrayList<String> s = new ArrayList<>();
+            s.add("Pilih");
             while (rs.next()) {
                 s.add(rs.getString("tahun"));
             }

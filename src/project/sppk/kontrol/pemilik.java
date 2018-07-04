@@ -7,6 +7,8 @@ package project.sppk.kontrol;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -15,6 +17,7 @@ import project.sppk.model.KriteriaProduk;
 import project.sppk.model.Produk;
 import project.sppk.model.laporan;
 import project.sppk.tampilan.login;
+import project.sppk.tampilan.pemilikDetailTransaksi;
 import project.sppk.tampilan.pemilikLaporan;
 import project.sppk.tampilan.pemilikPerhitungan;
 import project.sppk.tampilan.pemilikSPPK;
@@ -27,6 +30,7 @@ import project.sppk.tampilan.pemilikTransaksi;
 public class pemilik {
 
     pemilikLaporan laporan;
+    pemilikDetailTransaksi detail;
     pemilikSPPK rangking;
     pemilikPerhitungan perhitungan;
     pemilikTransaksi transaksi;
@@ -45,6 +49,7 @@ public class pemilik {
 
     public pemilik() {
         laporan = new pemilikLaporan();
+        detail = new pemilikDetailTransaksi();
         rangking = new pemilikSPPK();
         perhitungan = new pemilikPerhitungan();
         transaksi = new pemilikTransaksi();
@@ -59,10 +64,13 @@ public class pemilik {
         laporan.getComboTahun().setModel(model.getTahun());
         laporan.getComboBulan().setEnabled(false);
         laporan.getLihat().setEnabled(false);
+        laporan.getTabelTransaksi().addMouseListener(new tabelListener());
+        
+        detail.getKembali().addActionListener(new listener("detail kembali"));
 
         rangking.getKembali().addActionListener(new listener("ke laporan"));
         rangking.getDetailPerhitungan().addActionListener(new listener("perhitungan"));
-        
+
         perhitungan.getKembali().addActionListener(new listener("ke rangking"));
         perhitungan.getNormalisasi().addActionListener(new listener("tabel normalisasi"));
         perhitungan.getPerkalian().addActionListener(new listener("tabel perkalian"));
@@ -70,11 +78,42 @@ public class pemilik {
         perhitungan.getBobot().addActionListener(new listener("bobot"));
 
         laporan.setVisible(true);
-        
+
         getSemua();
         hitungNormalisasi();
         hitungPerkalian();
         urutkan();
+    }
+
+    private class tabelListener implements MouseListener {
+
+        public tabelListener() {
+        }
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            if (laporan.getComboBulan().isEnabled()) {
+                if (!laporan.getComboBulan().getSelectedItem().toString().equalsIgnoreCase("pilih")) {
+                    laporan.getLihat().setEnabled(true);
+                }
+            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+        }
     }
 
     private class listener implements ActionListener {
@@ -89,7 +128,11 @@ public class pemilik {
         public void actionPerformed(ActionEvent e) {
             switch (tipe) {
                 case "lihat transaksi":
-                    JOptionPane.showMessageDialog(null, "Belum Di implementasi : lihat transaksi");
+                    detail.setVisible(true);
+                    String kode = laporan.getTabelTransaksi().getValueAt(
+                            laporan.getTabelTransaksi().getSelectedRow()
+                            , 0).toString();
+                    detail.getTabelDetail().setModel(model.getDataPerTransaksi(kode));
                     break;
                 case "rangking":
                     rangking.setVisible(true);
@@ -97,17 +140,22 @@ public class pemilik {
                     rangking.getTabelRangking().setModel(tabelRanking);
                     break;
                 case "logout":
-                    new login();
+                    new user();
                     laporan.dispose();
                     break;
                 case "tahun":
                     String tahun = laporan.getComboTahun().getSelectedItem().toString();
-                    laporan.getComboBulan().setModel(model.getBulan(tahun));
-                    laporan.getComboBulan().setEnabled(true);
+                    laporan.getLihat().setEnabled(false);
+                    if (!tahun.equalsIgnoreCase("pilih")) {
+                        laporan.getComboBulan().setModel(model.getBulan(tahun));
+                        laporan.getComboBulan().setEnabled(true);
+                    }
                     break;
                 case "bulan":
                     String bulan = laporan.getComboBulan().getSelectedItem().toString();
-                    laporan.getTabelTransaksi().setModel(model.getDataBulanan(bulan));
+                    if (!bulan.equalsIgnoreCase("pilih")) {
+                        laporan.getTabelTransaksi().setModel(model.getDataBulanan(bulan));
+                    }
                     break;
                 case "perhitungan":
                     rangking.setVisible(false);
@@ -134,6 +182,9 @@ public class pemilik {
                 case "bobot":
                     perhitungan.getTabelPerhitungan().setModel(tabelBobot);
                     break;
+                case "detail kembali":
+                    detail.setVisible(false);
+                    break;
                 default:
                     JOptionPane.showMessageDialog(null, "Belum Di implementasi");
             }
@@ -148,7 +199,7 @@ public class pemilik {
         String kolomKriteriaProduk[] = {"Nama Produk", "Harga", "Kuantitas", "Tekstur", "Rasa"};
         String kolomNormalisasi[] = {"Nama Produk", "Harga", "Kuantitas", "Tekstur", "Rasa"};
         String kolomPerkalian[] = {"Nama Produk", "Total"};
-        String kolomRangking[] = {"Nama Produk", "Ranking"};
+        String kolomRangking[] = {"Nama Produk", "Ranking", "Saran Penambahan Produksi"};
         String kolomBobot[] = {"Nama Kriteria", "Bobot"};
         tabelKriteriaProduk = new DefaultTableModel(null, kolomKriteriaProduk);
         tabelNormalisasi = new DefaultTableModel(null, kolomNormalisasi);
@@ -234,25 +285,37 @@ public class pemilik {
             tabelPerkalianNormalisasi.addRow(data);
         }
     }
-    
+
     private void urutkan() {
         DefaultTableModel tmp = tabelPerkalianNormalisasi;
-        
+
         for (int i = 0; i < tmp.getRowCount(); i++) {
             for (int j = 1; j < tmp.getRowCount() - i; j++) {
                 double t1 = Double.valueOf(tmp.getValueAt(j - 1, 1).toString());
-                Object n1 = tmp.getValueAt(j-1, 0);
+                Object n1 = tmp.getValueAt(j - 1, 0);
                 double t2 = Double.valueOf(tmp.getValueAt(j, 1).toString());
                 Object n2 = tmp.getValueAt(j, 0);
                 if (t1 < t2) {
                     tmp.setValueAt(t2, j - 1, 1);
                     tmp.setValueAt(t1, j, 1);
-                    tmp.setValueAt(n2, j-1, 0);
+                    tmp.setValueAt(n2, j - 1, 0);
                     tmp.setValueAt(n1, j, 0);
                 }
             }
         }
-        
+        tmp.addColumn("Saran Penambahan Produksi");
+        for (int i = 0; i < tmp.getRowCount(); i++) {
+            tmp.setValueAt((i + 1), i, 1);
+        }
+
+        for (int i = 0; i < tmp.getRowCount(); i++) {
+            int penambahan = ((tmp.getRowCount() / 2) * 10) - i * 10;
+            if (penambahan < 0) {
+                penambahan = 0;
+            }
+            tmp.setValueAt(penambahan + " bungkus", i, 2);
+        }
+
         tabelRanking = tmp;
     }
 }

@@ -152,7 +152,7 @@ public class produksi {
                     stok.dispose();
                     break;
                 case "logout":
-                    new login();
+                    new user();
                     stok.dispose();
                     break;
                 default:
