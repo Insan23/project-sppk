@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Project%20SPPK/src/project/sppk/kontrol/pemilik.java</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Project%20SPPK/src/project/sppk/tampilan/pemilikLaporan.java</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Project%20SPPK/src/project/sppk/kontrol/kasir.java</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Project%20SPPK/src/project/sppk/kontrol/user.java</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Project%20SPPK/src/project/sppk/kontrol/produksi.java</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/Project%20SPPK/src/project/sppk/model/laporan.java</file>
+        </group>
     </open-files>
 </project-private>

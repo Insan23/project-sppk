@@ -16,7 +16,6 @@ import project.sppk.model.Kriteria;
 import project.sppk.model.KriteriaProduk;
 import project.sppk.model.Produk;
 import project.sppk.model.laporan;
-import project.sppk.tampilan.login;
 import project.sppk.tampilan.pemilikDetailTransaksi;
 import project.sppk.tampilan.pemilikLaporan;
 import project.sppk.tampilan.pemilikPerhitungan;
